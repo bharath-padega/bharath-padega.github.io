@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #container {
+            padding: 10px;
+            margin: 10px;
+            align-items: center;
+        }
+        input {
+            width: 150px;
+            font-size: 20px;
+            padding: 5px;
+        }
+        button {
+            width: 200px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #demo_div {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Enter Student Details</h2>
+        <input type="text" placeholder="Enter Name" id="name"/>
+        <input type="text" placeholder="Enter S_no" id="s_no"/>
+        <input type="text" placeholder="Enter DOB" id="dob"/>
+        <input type="text" placeholder="Enter Gender" id="gender"/>
+        <br>
+        <button onclick="updateStudent();">Insert Info</button>
+        <br>
+        <p>Info about students:</p>
+        <button onclick="showStudentInfo();">Show All Info</button>
+
+        <div id="demo_div"></div>
+    </div>
+
+    <script>
+        let studentinformationlist = [];  // Array to store student objects
+
+        function updateStudent() {
+            let student = {
+                name: document.getElementById("name").value,
+                s_no: document.getElementById("s_no").value,
+                dob: document.getElementById("dob").value,
+                gender: document.getElementById("gender").value
+            };
+
+           
+                studentinformationlist.push(student); 
+               
+            
+        }
+
+        function showStudentInfo() {
+            let output = "<h3>Student Records:</h3>";
+                studentinformationlist.forEach((stu, index) => {
+                    output += "My name is " + stu.name +" S_no is "  + stu.s_no +  " Date of Birth is " + stu.dob +" Gender : "+ stu.gender;
+                
+                });
+            
+           
+            document.getElementById("demo_div").innerHTML = output;
+        }
+
+        
+    </script>
+
+</body>
+</html>

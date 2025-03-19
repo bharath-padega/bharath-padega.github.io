@@ -1,0 +1,41 @@
+.header_div {
+background-color: grey;
+text-align: center;
+padding: 10px;
+}
+.content_div {
+background-color: lightblue;
+margin-top: 10px;
+padding: 10px;
+}
+.btn_div1 {
+text-align: center;
+padding: 10px;
+}
+.btn_div2 {
+text-align: center;
+padding: 10px;
+color: gold;
+}
+body
+{
+text-align:center;
+padding: 10px;
+}
+.empty-grey-box{
+background-color: lightgrey;
+text-align: center;
+padding: 100px;
+}
+.secondpagebg{
+background-color: black;
+text-align: center;
+color: white;
+padding:10px;
+}
+.headerbg{
+background-color: grey;
+text-align: center;
+color: white;
+padding:10px;
+}

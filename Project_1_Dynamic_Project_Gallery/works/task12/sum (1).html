@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #container {
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input {
+            width: 150px;
+            font-size: 20px;
+            padding: 5px;
+        }
+        button {
+            width: 180px;
+            font-size: 20px;
+            padding: 5px;
+            height: 40px;
+        }
+        #result {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="number" placeholder="Enter X" id="num1"/>
+        <input type="number" placeholder="Enter Y" id="num2"/>
+        <button onclick="add();">Calculate Sum</button>
+    </div>
+    <div id="result"></div>
+    
+    <script>
+
+        function add() {
+            const colors =["red", "green", "blue", "orange"];
+            let idx = 0;
+            let x = parseInt(document.getElementById("num1").value);
+            let y = parseInt(document.getElementById("num2").value);
+            let result = 0;
+            let i = x;
+            while (i <= y) {
+                result += i;
+                i++;
+                document.getElementById("result").innerText = "The sum is: " + result;
+                document.getElementById("result").style ="color : "+colors[idx];
+                idx = (idx+1)%colors.length;
+            }
+        }
+    </script>
+</body>
+</html>
