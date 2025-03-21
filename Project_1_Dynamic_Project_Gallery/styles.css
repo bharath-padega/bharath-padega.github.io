@@ -3,11 +3,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
-    gap: 10px; /* Ensures consistent spacing between buttons */
+    gap: 10px; 
 }
 
 .button {
-    width: 150px; /* Square shape */
+    width: 150px; 
     height: 150px;
     background-color: #f0f0f0; /* Default color */
     color: #333;
@@ -21,10 +21,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 16px; /* Larger text */
+    font-size: 16px; 
 }
 
-/* Random pleasant colors for buttons */
+
 .button:nth-child(1) { background-color: #ffadad; }
 .button:nth-child(2) { background-color: #ffd6a5; }
 .button:nth-child(3) { background-color: #fdffb6; }
@@ -43,5 +43,38 @@
 .button:nth-child(16) { background-color: #ecfffb; }
 
 .button:hover {
-    transform: scale(1.1); /* Enlarges button on hover */
+    transform: scale(1.1); 
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6c757d;
+    color: white;
+}
+
+#navbar .button {
+    flex-basis: 20%; 
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    #navbar .button {
+        flex-basis: 45%; 
+    }
+}
+
+
+#mainContent {
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    padding: 10px;
 }
