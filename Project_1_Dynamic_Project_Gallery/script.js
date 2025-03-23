@@ -33,6 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('mainContent').innerHTML = '';
             document.getElementById('mainContent').appendChild(iframe);
         };
+        const mainContent = document.getElementById('mainContent');
+
+        navbar.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function() {
+
+                mainContent.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
         navbar.appendChild(button);
     });
 });
+
