@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #container {
+            padding: 10px;
+            margin: 10px;
+            align-items: center;
+        }
+        input {
+            width: 150px;
+            font-size: 20px;
+            padding: 5px;
+        }
+        button {
+            width: 200px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #demo_div {
+            margin-top: 20px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Enter Student Details</h2>
+        <input type="text" placeholder="Enter Name" id="name"/>
+        <input type="text" placeholder="Enter S_no" id="s_no"/>
+        <input type="text" placeholder="Enter DOB" id="dob"/>
+        <input type="text" placeholder="Enter Gender" id="gender"/>
+        <br>
+        <button onclick="updateStudent();">Insert Info</button>
+        <button onclick="ClearInputs();">Clear Inputs</button>
+        <button onclick="ClearDisplay();">Clear Display</button>
+        <button onclick="showStudentInfo();">Show All Info</button>
+        <br>
+        <input type="text" placeholder="Search by Name or S_no" id="SearchInformation" oninput="searchStudent();"/>
+        <br>
+        <div id="demo_div"></div>
+    </div>
+
+    <script>
+        let studentinformationlist = [];  
+
+        function updateStudent() {
+            let name = document.getElementById("name").value;
+            let s_no = document.getElementById("s_no").value;
+            let dob = document.getElementById("dob").value;
+            let gender = document.getElementById("gender").value;
+            let new_student = new student(name, s_no, dob, gender);
+            studentinformationlist.push(new_student); 
+        }
+
+        function showStudentInfo() {
+            let output = "<h3>Student Records:</h3>";
+            studentinformationlist.forEach((stu) => {
+                output += "Name: " + stu.name + "  S_no: " + stu.s_no + "  DOB: " + stu.dob + "  Gender: " + stu.gender + "<br>";
+            });
+
+            document.getElementById("demo_div").innerHTML = output;
+        }
+
+        function student(name, s_no, dob, gender) {
+            this.name = name;
+            this.s_no = s_no;
+            this.dob = dob;
+            this.gender = gender;
+        }
+
+        function ClearDisplay() {
+            document.getElementById("demo_div").innerHTML = "";
+        }
+
+        function ClearInputs() {
+            document.getElementById("name").value = "";
+            document.getElementById("s_no").value = "";
+            document.getElementById("dob").value = "";
+            document.getElementById("gender").value = "";
+        }
+
+        function searchStudent() {
+            let searchValue = document.getElementById("SearchInformation").value.toLowerCase();
+            let output = "<h3>Search Results:</h3>";
+            let found = false;
+
+            for (let i = 0; i < studentinformationlist.length; i++) {
+                let stu = studentinformationlist[i];
+
+                if (stu.name.toLowerCase().includes(searchValue) || stu.s_no.toLowerCase().includes(searchValue)) {
+                    output += "Name: " + stu.name + "  S_no: " + stu.s_no + "  DOB: " + stu.dob + " Gender: " + stu.gender + "<br>";
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                output += "No matching records found.";
+            }
+
+            document.getElementById("demo_div").innerHTML = output;
+        }
+
+    </script>
+
+</body>
+</html>

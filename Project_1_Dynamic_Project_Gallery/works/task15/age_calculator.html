@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <label for="birthdate">Enter your birthdate:</label>
+    <input type="date" id="birthdate">
+    <p id="result"></p>
+
+    <script>
+        class Calculator {
+            constructor(birthdate) {
+                this.birthdate = new Date(birthdate);
+            }
+
+            calculate() {
+                const today = new Date();
+                let age = today.getFullYear() - this.birthdate.getFullYear();
+                const m = today.getMonth() - this.birthdate.getMonth();
+
+                if (m < 0 || (m === 0 && today.getDate() < this.birthdate.getDate())) {
+                    age--;
+                }
+
+                document.getElementById('result').innerHTML = `Your age is: ${age} years`;
+            }
+        }
+
+        document.getElementById('birthdate').addEventListener('input', function() {
+            if (this.value) {
+                const ageCalculator = new Calculator(this.value);
+                ageCalculator.calculate();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+#navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 10px; 
+}
+
+.button {
+    width: 150px; 
+    height: 150px;
+    background-color: #f0f0f0; /* Default color */
+    color: #333;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px; 
+}
+
+
+.button:nth-child(1) { background-color: #ffadad; }
+.button:nth-child(2) { background-color: #ffd6a5; }
+.button:nth-child(3) { background-color: #fdffb6; }
+.button:nth-child(4) { background-color: #caffbf; }
+.button:nth-child(5) { background-color: #9bf6ff; }
+.button:nth-child(6) { background-color: #a0c4ff; }
+.button:nth-child(7) { background-color: #bdb2ff; }
+.button:nth-child(8) { background-color: #ffc6ff; }
+.button:nth-child(9) { background-color: #ecec9c; }
+.button:nth-child(10) { background-color: #bde0fe; }
+.button:nth-child(11) { background-color: #a2d2ff; }
+.button:nth-child(12) { background-color: #99e2b4; }
+.button:nth-child(13) { background-color: #f7d6e0; }
+.button:nth-child(14) { background-color: #f9c0c0; }
+.button:nth-child(15) { background-color: #fbe7c6; }
+.button:nth-child(16) { background-color: #ecfffb; }
+
+.button:hover {
+    transform: scale(1.1); 
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6c757d;
+    color: white;
+}
+
+#navbar .button {
+    flex-basis: 20%; 
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    #navbar .button {
+        flex-basis: 45%; 
+    }
+}
+
+
+#mainContent {
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    padding: 10px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #container {
+                padding: 10px;
+                margin: 10px;
+            }
+            input {
+                width: 150px;
+                font-size: 20px;
+                padding: 5px;
+                margin: 5px;
+            }
+            button {
+                width: 200px;
+                padding: 10px;
+                margin-top: 10px;
+                font-size: 18px;
+            }
+            #demo_div {
+                margin-top: 20px;
+                font-size: 20px;
+            }
+            #container_div {
+                margin-top: 20px;
+                font-size: 24px;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_content">
+            <div id="container">
+                <h2>Random Number Within a Range</h2>
+                <input type="number" placeholder="Enter X" id="x_value"/>
+                <input type="number" placeholder="Enter Y" id="y_value"/>
+                <br>
+                <button onclick="generateRandom()">Generate Random Number</button>
+                <br>
+                <p>Random number is:</p>
+            </div>
+            
+            <div id="demo_div"></div>    
+            <div id="container_div"></div>
+        </div>
+
+        <script>
+            (function() {
+                alert("Reloaded!!!!!");
+            })();
+
+            const colors = ["red", "green", "blue", "orange"];
+            let idx = 0; 
+            let originalContent = document.getElementById("main_content").innerHTML;
+
+            function welcome_user() {
+                document.getElementById("main_content").innerHTML = "<h1 style='text-align:center;'>Vanished!</h1>";
+
+                
+                setTimeout(() => {
+                    document.getElementById("main_content").innerHTML = originalContent;
+                }, 10000);
+            }
+
+            setTimeout(welcome_user, 5000);
+
+            function generateRandom() {
+                let x = parseInt(document.getElementById("x_value").value);
+                let y = parseInt(document.getElementById("y_value").value);
+
+                let randomNum = Math.floor(Math.random() * (y - x + 1)) + x;
+                document.getElementById("demo_div").innerHTML = randomNum;
+                document.getElementById("demo_div").style.color = colors[idx];
+                idx = (idx + 1) % colors.length;
+            }
+        </script>
+    </body>
+</html>
